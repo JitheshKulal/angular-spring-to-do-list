@@ -1,9 +1,16 @@
-:host {
-    background-color: darkcyan;
-    border: 1px solid #dddddd;
-}
+
 
 h1 {
     color: coral;
+    padding: auto;
+    text-align: center;
 }
 
+
+button{
+    /* width: 25px; */
+    padding: 5px 5px;
+    background-color: #111111;
+    color: white;
+    cursor: pointer;
+}
