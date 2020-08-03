@@ -1,0 +1,23 @@
+<h2>Contact</h2>
+
+<form (submit)="print('Submitted form')" action="">
+    <label for="name">Enter Name:</label>
+    <input required minlength="6" ngModel #name = "ngModel" (input)="print(name)" type="text" name="name" id="name">
+    <div *ngIf="name.touched && name.errors!=null">
+        <div *ngIf="name.errors.required">
+            <br>
+            <label for="" style="color: red;">Name is mandatory</label>
+        </div>
+        <div *ngIf="name.touched && name.errors.minlength">
+            <br>
+            <label for="" style="color: red;">Please enter minimum 6 characters</label>
+        </div>
+    </div>  
+    <br><br>
+    <label for="phone">Enter Phone:</label>
+    <input type="text" id="phone">
+    <br><br>
+    <input type="submit" value="Submit">
+
+
+</form>
