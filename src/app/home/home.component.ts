@@ -1,4 +1,5 @@
 import { Component, OnInit} from '@angular/core'
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-home',
@@ -6,9 +7,14 @@ import { Component, OnInit} from '@angular/core'
     styleUrls: ['./home.component.css']
 })
 
-export class HomeComponent implements OnInit {
+export class HomeComponent {
 
-    constructor() {}
+    constructor(private router:Router) {
+        const token = sessionStorage.getItem('jsessionid');
 
-    ngOnInit() {}
+        if(token === null || JSON.parse(token).expires_in < new Date().getTime()){
+            router.navigateByUrl('/login');
+        }
+    }
+
 }

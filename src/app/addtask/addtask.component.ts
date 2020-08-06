@@ -1,4 +1,5 @@
 import { Component, OnInit} from '@angular/core'
+import { TodoService } from '../todo.service';
 
 @Component({
     selector: 'app-addtask',
@@ -8,12 +9,13 @@ import { Component, OnInit} from '@angular/core'
 
 export class AddtaskComponent {
 
-    constructor() {}
+    constructor(private todo:TodoService) {}
 
     item:string;
     
     //TODO: perform add task logic
     add() {
+        this.todo.addItem(this.item, JSON.parse(sessionStorage.getItem('jsessionid')).access_token);
         console.log(this.item);
         this.item = '';
     }

@@ -1,4 +1,5 @@
-import { Component, OnInit} from '@angular/core'
+import { Component, OnInit} from '@angular/core';
+import { TodoService } from '../todo.service';
 
 @Component({
     selector: 'app-tasklist',
@@ -8,9 +9,9 @@ import { Component, OnInit} from '@angular/core'
 
 export class TasklistComponent {
 
-    todoList = [];
-
-    constructor() {}
+    constructor(public todo:TodoService) {
+        todo.load();
+    }
 
 
 }
