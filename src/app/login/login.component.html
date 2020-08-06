@@ -1,0 +1,27 @@
+<h1>Log In</h1>
+
+<form (submit) = "login()" action="#" class="loginForm">
+
+    <input type="text" class="input" required placeholder="Enter Username" [(ngModel)] = "userData.username" #name="ngModel" name="name" (input) = "error=false">
+
+    <div class="error" *ngIf = "name.touched && name.errors != null">
+        <div *ngIf = "name.errors.required">
+            <label>ERROR : Mandatory Field</label>
+        </div>
+    </div>
+
+    <input type="password" class="input" required placeholder="Enter Password" [(ngModel)] = "userData.password" #pass="ngModel" name="pass" (input) = "error=false">
+
+    <div class="error" *ngIf = "pass.touched && name.errors != null">
+        <div *ngIf = "pass.errors.required">
+            <label>ERROR : Mandatory Field</label>
+        </div>
+    </div>
+
+    <div class="error" *ngIf="error">
+        <label>ERROR: Username or Password incorrect</label>
+    </div>
+    <br>
+    <button type="submit" class="submitBtn">Submit</button>
+
+</form>

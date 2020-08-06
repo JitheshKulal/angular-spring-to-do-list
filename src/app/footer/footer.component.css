@@ -2,8 +2,9 @@
     display: block;
     height: 3em;
     width: 100%;
-    position: absolute;
+    position: fixed;
     background-color: rgb(102, 100, 100);
+    bottom: 0px;
 }
 
 .copyText {

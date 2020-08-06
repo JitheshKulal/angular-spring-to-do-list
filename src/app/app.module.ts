@@ -12,6 +12,7 @@ import { LoginComponent } from  './login/login.component';
 import { HomeComponent } from  './home/home.component';
 import { AddtaskComponent } from  './addtask/addtask.component';
 import { TasklistComponent } from  './tasklist/tasklist.component';
+import { TodoService } from './todo.service';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,7 @@ import { TasklistComponent } from  './tasklist/tasklist.component';
     HttpClientModule,
     FormsModule
   ],
-  providers: [TokenService],
+  providers: [TokenService, TodoService],
   bootstrap: [AppComponent],
   exports: [AppComponent]
 })
