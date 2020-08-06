@@ -6,14 +6,22 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { TokenService } from './token.service';
-import { ContactComponent } from './contact/contact.component';
-import { HomeComponent } from './home/home.component';
+import { HeaderComponent } from  './header/header.component';
+import { FooterComponent } from  './footer/footer.component';
+import { LoginComponent } from  './login/login.component';
+import { HomeComponent } from  './home/home.component';
+import { AddtaskComponent } from  './addtask/addtask.component';
+import { TasklistComponent } from  './tasklist/tasklist.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ContactComponent,
-    HomeComponent
+    HeaderComponent,
+    FooterComponent,
+    LoginComponent,
+    HomeComponent,
+    AddtaskComponent,
+    TasklistComponent
   ],
   imports: [
     BrowserModule,

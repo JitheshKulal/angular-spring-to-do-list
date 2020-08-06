@@ -7,7 +7,7 @@ import { UserData } from './userdata';
   selector: 'app-root',
   providers: [],
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: []
 })
 
 export class AppComponent {
