@@ -6,30 +6,35 @@ export class TodoService {
 
     todoList = [];
 
-    constructor(private http:HttpClient) {
+    constructor(private _http:HttpClient) {
         this.load();
     }
 
     load() {
+        console.log("Failing after this");
         const token = sessionStorage.getItem('jsessionid');
         const tokenJSON = JSON.parse(token);
 
         if(token != null || tokenJSON.expires_in < new Date().getTime()){
 
+            console.log(token);
+            console.log(tokenJSON);
             const getTasksURL = "http://localhost:8080/getTasks";
             const getTasksHeaders: HttpHeaders = new HttpHeaders().append('Authorization', 'Bearer'+ tokenJSON.access_token);
 
-            this.http.post(getTasksURL,
-                { withCredentials: true },
-                { headers: getTasksHeaders }).subscribe( (res) => {
-                    console.log(res);
-                    for(let i=0; ;i++){
-                        if(res[i] == null){
-                            break;
-                        }
-                        this.todoList.unshift(res[i].task);
-                    }
-                });
+            // this.http.post(getTasksURL,
+            //     { withCredentials: true },
+            //     { headers: getTasksHeaders }).subscribe( (res) => {
+            //         console.log(res);
+            //         for(let i=0; ;i++){
+            //             if(res[i] == null){
+            //                 break;
+            //             }
+            //             this.todoList.unshift(res[i].task);
+            //         }
+            //     });
+
+            console.log("Inside Load");
         }
 
 
@@ -42,7 +47,7 @@ export class TodoService {
         const insertTaskParameters: HttpParams = new HttpParams().append('task', task);
         const insertTaskHeaders: HttpHeaders = new HttpHeaders().append('Authorization', 'Bearer'+ token);
 
-        this.http.post(insertTaskURL,
+        this._http.post(insertTaskURL,
             { withCredentials: true },
             { headers: insertTaskHeaders, params: insertTaskParameters }).subscribe( (res) => {
                 console.log(res);
